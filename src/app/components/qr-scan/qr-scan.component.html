@@ -1,8 +1,34 @@
-<div class="qr-scan container-mh-100">
+<div #popup class="popup-container">
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
+    <div class="popup-background">
+        <div class="qr-scan popup " tabindex="-1" >
+            <div class="" >
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Karma</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Das sind die Werte für deinen Einkauf
+                        <ul>
+                            <li>Kilometer</li>
+                            <li>Wasser in l</li>
+                        </ul>
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="qr-scan content">
     <canvas #myCanvas hidden></canvas>
     <video #preview hidden></video>
-
-    <div id="output" *ngIf="output | async">
-      <span>Success</span>
-    </div>
 </div>

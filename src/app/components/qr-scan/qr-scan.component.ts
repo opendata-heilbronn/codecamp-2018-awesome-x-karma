@@ -11,6 +11,13 @@ export class QrScanComponent implements OnInit {
 
   output: BehaviorSubject<String> = new BehaviorSubject<String>(null);
 
+  openModal() {
+    this.popup.nativeElement.className = this.popup.nativeElement.className.concat(" open");
+    document.querySelector('body').className = document.querySelector('body').className.concat(" popup-active")
+    this.video.nativeElement.stop()
+  }
+
+
   drawLine(begin, end, color) {
     let canvas = this.canvas.nativeElement.getContext("2d");
     canvas.beginPath();
@@ -22,7 +29,6 @@ export class QrScanComponent implements OnInit {
   }
 
   tick() {
-    // debugger
     let video = this.video.nativeElement;
     let canvasElement = this.canvas.nativeElement;
     let canvas = this.canvas.nativeElement.getContext("2d");
@@ -46,7 +52,9 @@ export class QrScanComponent implements OnInit {
         // outputData.parentElement.hidden = false;
 
         if (this.output.getValue() != code.data) {
+          console.log(code.data)
           this.output.next(code.data);
+          this.openModal();
         }
       } else {
         // outputMessage.hidden = false;
@@ -60,6 +68,7 @@ export class QrScanComponent implements OnInit {
 
   @ViewChild('myCanvas') canvas:ElementRef;
   @ViewChild('preview') video:ElementRef;
+  @ViewChild('popup') popup:ElementRef;
 
   ngAfterViewInit(){
     console.log(this.canvas.nativeElement.width)
