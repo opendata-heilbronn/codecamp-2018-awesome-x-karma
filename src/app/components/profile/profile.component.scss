@@ -10,7 +10,7 @@
 .profile-container {
   text-align: center;
   height: 61.8vh;
-  padding-top: 120px;
+  padding-top: 3rem;
   //background-color: map-get($theme-colors, "primary");
 
   .profile-picture {
@@ -21,18 +21,16 @@
     background-position: top center;
     border: 5px solid map-get($theme-colors, "fontcolor");
     border-radius: 50%;
-    margin-bottom: 100px;
-
-    border: solid 4px white;
+    margin-bottom: 1.4rem;
   }
 
   .score {
     display: block;
     width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 2rem;
 
     .profile-score {
-      font-size: 60px;
+      //font-size: 60px;
       line-height: 40px;
       text-align: center;
       display: block;
@@ -59,11 +57,11 @@
     top: 300px;
     left: 0;
     right: 180px;
-    font-size: 25px !important;
+    //font-size: 25px !important;
   }
 
   .icons, .icons i {
-    font-size: 33px;
+    //font-size: 33px;
     width: 43px;
     height: 43px;
     line-height: 43px;
@@ -85,7 +83,7 @@
 .profile-history {
   background-color: map-get($theme-colors, "secondary");
   height: 38.2vh; //golden ratio
-  padding: 50px 0 0;
+  padding: 1rem 0 0;
 }
 
 .profile-history-item {
@@ -119,7 +117,7 @@
   //position: absolute;
   position: relative;
   display: block;
-  top: -70px;
+  top: -2.1rem;
 
   color: white;
   //margin-bottom: -83px;
