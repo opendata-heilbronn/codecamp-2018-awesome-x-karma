@@ -84,6 +84,10 @@
   background-color: map-get($theme-colors, "secondary");
   height: 38.2vh; //golden ratio
   padding: 1rem 0 0;
+
+  .scroll-box {
+    height: 70%;
+  }
 }
 
 .profile-history-item {

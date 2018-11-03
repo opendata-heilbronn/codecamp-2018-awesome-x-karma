@@ -12,12 +12,19 @@ h2, h3, h4, h5, h6 {
   color: map_get($theme-colors, "fontcolor");
 }
 
+
+
 .receipt-container {
   //height: 100vh;
   height: 61.8vh;
   padding-top: $padding-top;
   padding-left: 5%;
   padding-right: 5%;
+
+  .scroll-box {
+    height: 80%;
+  }
+
 }
 
 .control-container {
@@ -27,6 +34,10 @@ h2, h3, h4, h5, h6 {
   padding-left: 5%;
   padding-right: 5%;
   background-color: map_get($theme-colors, "secondary");
+
+  .scroll-box {
+    height: 80%;
+  }
 
   .receipt-item {
     width: 80%;
