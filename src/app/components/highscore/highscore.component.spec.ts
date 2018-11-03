@@ -8,9 +8,8 @@ describe('HighscoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HighscoreComponent ]
-    })
-    .compileComponents();
+      declarations: [HighscoreComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
