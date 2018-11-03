@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -9,11 +10,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-
   userLoggedIn = false;
   user: User;
 
-  constructor(private auth: AngularFireAuth, private userService: UserService) { }
+  constructor(
+    private auth: AngularFireAuth,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
@@ -24,5 +28,4 @@ export class NavigationComponent implements OnInit {
       this.userLoggedIn = true;
     });
   }
-
 }

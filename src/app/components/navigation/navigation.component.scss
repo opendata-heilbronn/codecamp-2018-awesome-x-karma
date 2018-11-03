@@ -1,0 +1,49 @@
+@import "../../../styles.scss";
+$borderthickness: 4px;
+
+.navcontainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 10px 16px 0px 16px;
+  background-color: map-get($theme-colors, "secondary");
+  border-bottom: $borderthickness solid map-get($theme-colors, "fontcolor");
+
+
+  .navbaricons {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50px;
+    flex-grow: 1;
+    margin: 0;
+    position: relative;
+    bottom: -$borderthickness;
+
+    .navicon {
+      display: inline-block;
+      flex-basis: 40px;
+      flex-grow: 1;
+      //background-color:red;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+
+
+      i {
+        color: map-get($theme-colors, "fontcolor");
+        font-size: 30px;
+        display: inline-block;
+      }
+
+    }
+    .active {
+      border-bottom: $borderthickness solid map-get($theme-colors, "action");
+    }
+  }
+
+  .navbar-brand {
+    color: map-get($theme-colors, "fontcolor") !important;
+    font-size: 40px;
+    flex-basis: 100px;
+  }
+}
