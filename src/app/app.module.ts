@@ -18,6 +18,7 @@ import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { HighscoreComponent } from './components/highscore/highscore.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { ReceiptComponent } from './components/receipt/receipt.component';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReceiptComponent } from './components/receipt/receipt.component';
     AppRoutingModule,
     HighlightJsModule,
     FormsModule,
+    ProgressBarModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
