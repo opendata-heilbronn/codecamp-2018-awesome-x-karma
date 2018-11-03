@@ -44,7 +44,10 @@ export class QrScanComponent implements OnInit {
         this.drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
         // outputMessage.hidden = true;
         // outputData.parentElement.hidden = false;
-        this.output.next(code.data);
+
+        if (this.output.getValue() != code.data) {
+          this.output.next(code.data);
+        }
       } else {
         // outputMessage.hidden = false;
         // outputData.parentElement.hidden = true;
@@ -71,7 +74,6 @@ export class QrScanComponent implements OnInit {
       this.video.nativeElement.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
       this.video.nativeElement.play();
       requestAnimationFrame(() => this.tick());
-
     });
 
     this.output.subscribe((data) => console.log(data))
