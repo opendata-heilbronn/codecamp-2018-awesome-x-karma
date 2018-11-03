@@ -28,6 +28,10 @@ $borderthickness: 4px;
       line-height: 70px;
       text-align: center;
 
+      &:active, &:focus {
+        outline: none;
+      }
+
 
       i {
         color: map-get($theme-colors, "fontcolor");

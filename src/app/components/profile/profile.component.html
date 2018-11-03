@@ -2,18 +2,12 @@
     <div class="profile-container">
         <div class="profile-picture" *ngIf="user  && user.photoURL" [style.background-image]="'url(' + user.photoURL + ')' | safe: 'style'"></div>
         <div class="profile-picture" *ngIf="!user || !user.photoURL" style="background-image: url('/assets/avatar-mock.png')"></div>
+        <div class="score">
+            <span class="profile-score">1.337</span>
+            <span class="profile-karma-total">Karmapunkte</span>
+        </div>
         <h3 class="profile-name"><span  *ngIf="user">{{ user.email }}</span></h3>
-        <span class="profile-karma-total"> 1.337 Karmapunkte</span>
         <div class="awards">Y Y Y</div>
-        <div class="position-absolute profile-icon">
-            <a class=" icons" [routerLink]="['/profile']"> <i class="fa fa-user active"></i></a>
-        </div>
-        <div class="position-absolute trophy-icon">
-            <a class=" icons" [routerLink]="['/scan']"> <i class="fa fa-trophy"></i></a>
-        </div>
-        <div class="position-absolute chart-icon">
-            <a class=" icons"  [routerLink]="['/highscore']"> <i class="fa fa-bar-chart"></i></a>
-        </div>
     </div>
     <div class="profile-history">
         <a class="btn btn-action"  [routerLink]="['/scan']">Kassenzettel scannen</a>
