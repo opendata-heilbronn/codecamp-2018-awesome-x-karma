@@ -1,73 +1,73 @@
 @import "../../../styles.scss";
 
 .profile {
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .profile-container {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-picture {
-    display: inline-block;
-    width: 170px;
-    height: 170px;
-    border: 3px solid red;
+  display: inline-block;
+  width: 170px;
+  height: 170px;
+  border: 3px solid red;
 
-    background-size: cover;
-    background-position: top center;
-    border-radius: 50%;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
 }
 
 .profile-name {
 }
 
 .profile-history {
-    background-color: map-get($theme-colors, "secondary");
-    height: 50vh;
-    padding: 50px 0 0;
+  background-color: map-get($theme-colors, "secondary");
+  height: 50vh;
+  padding: 50px 0 0;
 }
 
 .profile-history-item {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    padding: 8px 13px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 8px 13px;
 
-    color: black;
-    background-color: white;
+  color: black;
+  background-color: white;
 }
 
 .icon-tree {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: url(/assets/icon-tree.png) no-repeat top left;
-    background-size: cover;
-    margin-bottom: -5px;
-    margin-right: 5px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(/assets/icon-tree.png) no-repeat top left;
+  background-size: cover;
+  margin-bottom: -5px;
+  margin-right: 5px;
 }
 
 .history-item-icons {
-    float: right;
+  float: right;
 }
 
 .btn-action {
-    background-color: map-get($theme-colors, "action");
-    color: white;
-    margin-bottom: -83px;
-    border-radius: 23px;
-    z-index: 1;
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
+  background-color: map-get($theme-colors, "action");
+  color: white;
+  margin-bottom: -83px;
+  border-radius: 23px;
+  z-index: 1;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 
-    &:hover {
-        color: white
-    }
+  &:hover {
+    color: white
+  }
 }
