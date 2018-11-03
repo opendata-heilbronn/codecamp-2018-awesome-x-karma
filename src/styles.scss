@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "themes/darkly.scss";
+
+$enable-rounded: false;
+
+$primary: red;
+$secondary: blue;
+// $success,
+// $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+
+
+$theme-colors: (
+    "dark": rgb(18, 0, 21),
+    "primary": rgb(18, 0, 21),
+    "secondary": rgb(31, 21, 31),
+
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "themes/bootswatch.scss";
+
+.hljs {
+    background: map-get($theme-colors, "secondary");
+}
+
+.carousel-caption {
+    left: 0;
+    right: 0;
+}
