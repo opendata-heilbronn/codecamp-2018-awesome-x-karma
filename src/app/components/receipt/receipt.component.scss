@@ -1,0 +1,56 @@
+@import "../../../styles.scss";
+
+h1 {
+  color: map_get($theme-colors, "fontcolor");
+}
+
+h2 {
+  padding-bottom: 10px;
+}
+
+h2, h3, h4, h5, h6 {
+  color: map_get($theme-colors, "fontcolor");
+}
+
+.receipt-container {
+  //height: 100vh;
+  height: 61.8vh;
+  padding-top: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.control-container {
+  //height: 100vh;
+  height: 38.2vh;
+  padding-top: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: map_get($theme-colors, "secondary");
+
+  .receipt-item {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 8px 13px;
+
+    color: black;
+    background-color: white;
+
+    .receipt-item-icons {
+      float: right;
+    }
+  }
+}
+
+.icon-tree {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(/assets/icon-tree.png) no-repeat top left;
+  background-size: cover;
+  margin-bottom: -5px;
+  margin-right: 5px;
+}
