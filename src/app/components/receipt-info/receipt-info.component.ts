@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-receipt-info',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./receipt-info.component.scss']
 })
 export class ReceiptInfoComponent implements OnInit {
+  @Input()
+  currentProgress: number = 0;
+
+  @Input()
+  description: string = '';
+
   constructor() {}
 
   ngOnInit() {}
