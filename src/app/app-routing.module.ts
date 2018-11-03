@@ -6,13 +6,19 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HighscoreComponent } from './components/highscore/highscore.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/profile', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'scan', component: QrScanComponent, canActivate: [AuthGuard] },
-  { path: 'highscore', component: HighscoreComponent, canActivate: [AuthGuard] }
+  {
+    path: 'highscore',
+    component: HighscoreComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'receipt', component: ReceiptComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

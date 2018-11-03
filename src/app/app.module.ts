@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { HighscoreComponent } from './components/highscore/highscore.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SafePipe } from './pipes/safe.pipe';
     QrScanComponent,
     SafePipe,
     QrScanComponent,
-    HighscoreComponent
+    HighscoreComponent,
+    ReceiptComponent
   ],
   imports: [
     BrowserModule,
