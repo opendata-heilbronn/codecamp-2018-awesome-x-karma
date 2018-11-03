@@ -1,0 +1,59 @@
+@import "../../../styles.scss";
+
+h1 {
+  color: map_get($theme-colors, "fontcolor");
+  padding-bottom: 10px;
+}
+
+.highscore-container {
+  width: 100vw;
+  margin-top: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  .place-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 45px;
+
+    .image {
+      background-color: red;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      top: -10px;
+      bottom: 0;
+      right: 0;
+      background-size: cover;
+    }
+    .desc {
+      padding: 30px;
+      background-color: #fff;
+      height: 100px;
+      width: 90%;
+      margin-right: 10%;
+      border-radius: 5px;
+
+      .score {
+        font-size: 30px;
+        //color: map_get($theme-colors, "secondary");
+      }
+      .name {
+        font-size: 30px;
+        padding-left: 20px;
+        //color: map_get($theme-colors, "secondary");
+      }
+    }
+  }
+}
+
+.icon-tree {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url(/assets/icon-tree.png) no-repeat top left;
+  background-size: cover;
+  margin-bottom: -8px;
+  margin-right: 5px;
+}

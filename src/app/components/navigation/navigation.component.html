@@ -8,7 +8,7 @@
         <li class="navicon" [ngClass]="{'active': router.url === '/highscore'}" [routerLink]="['/highscore']">
             <i class="fa fa-bar-chart"></i>
         </li>
-        <li class="navicon" [ngClass]="{'active': router.url === '/profile'}" [routerLink]="['/trophies']">
+        <li class="navicon" [ngClass]="{'active': router.url === '/profile'}" [routerLink]="['/profile']">
             <i class="fa fa-trophy"></i>
         </li>
         <li class="navicon" *ngIf="userLoggedIn"  (click)="signOut()">
