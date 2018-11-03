@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HighlightJsModule } from 'ngx-highlight-js';
-
+import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +30,7 @@ import { QrScanComponent } from './components/qr-scan/qr-scan.component';
     BrowserModule,
     AppRoutingModule,
     HighlightJsModule,
+    FormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
