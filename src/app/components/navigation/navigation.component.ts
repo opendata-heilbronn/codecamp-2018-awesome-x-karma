@@ -9,16 +9,16 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class NavigationComponent implements OnInit {
 
-  userLoggedIn: boolean = false;
+  userLoggedIn = false;
   user: User;
 
   constructor(private auth: AngularFireAuth) { }
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
-      if (user == null)
+      if (user == null) {
         return;
-        
+      }
       this.user = user;
       this.userLoggedIn = true;
     });
