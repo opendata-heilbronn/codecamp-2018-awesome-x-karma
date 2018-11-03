@@ -8,24 +8,24 @@
 $enable-rounded: true;
 
 $theme-colors: (
-    "dark": rgb(18, 0, 21),
-    "primary": #2aabc7,
-    "secondary": #168198,
-    "action": #ffbb3f
-);
+  "dark": rgb(18, 0, 21),
+  "primary": #2aabc7,
+  "secondary": #168198,
+  "action": #ffbb3f
+  );
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 /* @import "themes/bootswatch.scss"; */
 
 .hljs {
-    background: map-get($theme-colors, "secondary");
+  background: map-get($theme-colors, "secondary");
 }
 
 .carousel-caption {
-    left: 0;
-    right: 0;
+  left: 0;
+  right: 0;
 }
 
 .container-mh-100 {
-    min-height: 100vh
+  min-height: 100vh
 }

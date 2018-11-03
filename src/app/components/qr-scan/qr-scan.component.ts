@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import jsQR from 'jsqr';
+import { BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-qr-scan',
@@ -8,17 +9,17 @@ import jsQR from 'jsqr';
 })
 export class QrScanComponent implements OnInit {
 
-    output: string = "";
+  output: BehaviorSubject<String> = new BehaviorSubject<String>(null);
 
-    drawLine(begin, end, color) {
-      let canvas = this.canvas.nativeElement.getContext("2d");
-      canvas.beginPath();
-      canvas.moveTo(begin.x, begin.y);
-      canvas.lineTo(end.x, end.y);
-      canvas.lineWidth = 4;
-      canvas.strokeStyle = color;
-      canvas.stroke();
-    }
+  drawLine(begin, end, color) {
+    let canvas = this.canvas.nativeElement.getContext("2d");
+    canvas.beginPath();
+    canvas.moveTo(begin.x, begin.y);
+    canvas.lineTo(end.x, end.y);
+    canvas.lineWidth = 4;
+    canvas.strokeStyle = color;
+    canvas.stroke();
+  }
 
   tick() {
     // debugger
@@ -43,7 +44,7 @@ export class QrScanComponent implements OnInit {
         this.drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
         // outputMessage.hidden = true;
         // outputData.parentElement.hidden = false;
-        this.output = code.data;
+        this.output.next(code.data);
       } else {
         // outputMessage.hidden = false;
         // outputData.parentElement.hidden = true;
@@ -58,20 +59,23 @@ export class QrScanComponent implements OnInit {
   @ViewChild('preview') video:ElementRef;
 
   ngAfterViewInit(){
-      console.log(this.canvas.nativeElement.width)
-      var canvas = this.canvas.nativeElement.getContext("2d")
+    console.log(this.canvas.nativeElement.width)
+    var canvas = this.canvas.nativeElement.getContext("2d")
   }
 
   ngOnInit() {
-      // var video = this.video.nativeElement
-      // let tick = this.tick
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then((stream) => {
-        this.video.nativeElement.srcObject = stream;
-        this.video.nativeElement.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-        this.video.nativeElement.play();
-        requestAnimationFrame(() => this.tick());
+    // var video = this.video.nativeElement
+    // let tick = this.tick
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then((stream) => {
+      this.video.nativeElement.srcObject = stream;
+      this.video.nativeElement.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      this.video.nativeElement.play();
+      requestAnimationFrame(() => this.tick());
 
     });
+
+    this.output.subscribe((data) => console.log(data))
+
   }
 
 }
