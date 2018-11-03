@@ -3,10 +3,10 @@
         <div class="profile-picture" *ngIf="user  && user.photoURL" [style.background-image]="'url(' + user.photoURL + ')' | safe: 'style'"></div>
         <div class="profile-picture" *ngIf="!user || !user.photoURL" style="background-image: url('/assets/avatar-mock.png')"></div>
         <div class="score">
-            <span class="profile-score">1.337</span>
+            <span class="profile-score h1">1.337</span>
             <span class="profile-karma-total">Karmapunkte</span>
         </div>
-        <h3 class="profile-name"><span  *ngIf="user">{{ user.email }}</span></h3>
+        <!--<h3 class="profile-name"><span  *ngIf="user">{{ user.email }}</span></h3>-->
         <div class="awards">Y Y Y</div>
     </div>
     <div class="profile-history">
