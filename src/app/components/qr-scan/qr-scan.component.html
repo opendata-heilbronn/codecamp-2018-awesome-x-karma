@@ -1,7 +1,8 @@
-<canvas #myCanvas width="400" hidden></canvas>
-<video #preview hidden></video>
+<div class="qr-scan container-mh-100">
+    <canvas #myCanvas hidden></canvas>
+    <video #preview hidden></video>
 
-<div id="output">
-  {{output}}
+    <div id="output" *ngIf="output | async">
+      <span>Success</span>
+    </div>
 </div>
-
