@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
+import { HighscoreComponent } from './highscore/highscore.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { QrScanComponent } from './components/qr-scan/qr-scan.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
-    QrScanComponent
+    QrScanComponent,
+    HighscoreComponent
   ],
   imports: [
     BrowserModule,
