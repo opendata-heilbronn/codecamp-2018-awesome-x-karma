@@ -12,7 +12,8 @@ $theme-colors: (
   "dark": rgb(18, 0, 21),
   "primary": #2aabc7,
   "secondary": #168198,
-  "action": #ffbb3f
+  "action": #ffbb3f,
+  "fontcolor": #fff
   );
 
 @import "../node_modules/bootstrap/scss/bootstrap";

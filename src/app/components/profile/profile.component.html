@@ -3,8 +3,16 @@
         <div class="profile-picture" style="background-image: url('/assets/avatar-mock.png')"></div>
         <h3 class="profile-name">Max Mustermann</h3>
         <span class="profile-karma-total"> 1.337 Karmapunkte</span>
-        <i class="fa fa-user"></i>
         <div class="awards">Y Y Y</div>
+        <div class="position-absolute profile-icon">
+            <i class="fa fa-user icons active"></i>
+        </div>
+        <div class="position-absolute trophy-icon">
+            <i class="fa fa-trophy icons"></i>
+        </div>
+        <div class="position-absolute chart-icon">
+            <i class="fa fa-bar-chart icons"></i>
+        </div>
     </div>
     <div class="profile-history">
         <a class="btn btn-action"  [routerLink]="['/scan']">Kassenzettel scannen</a>

@@ -12,16 +12,51 @@
   height: 61.8vh;
   padding-top: 80px;
   //background-color: map-get($theme-colors, "primary");
+
+  .profile-picture {
+    display: inline-block;
+    width: 170px;
+    height: 170px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+    margin-bottom: 100px;
+  }
+
+  .profile-icon {
+    top: 330px;
+    left: 0;
+    right: 0;
+  }
+
+  .trophy-icon {
+    top: 300px;
+    left: 180px;
+    right: 0;
+  }
+
+  .chart-icon {
+    top: 300px;
+    left: 0;
+    right: 180px;
+    font-size: 25px !important;
+  }
+
+  .icons {
+    font-size: 33px;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+  }
+
+  .active {
+    background-color: map-get($theme-colors, "fontcolor");
+    color: map-get($theme-colors, "primary");
+    border-radius: 50%;
+  }
 }
 
-.profile-picture {
-  display: inline-block;
-  width: 170px;
-  height: 170px;
-  background-size: cover;
-  background-position: top center;
-  border-radius: 50%;
-}
+
 
 .profile-name {
 }
