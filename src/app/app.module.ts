@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { HighscoreComponent } from './components/highscore/highscore.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { HighscoreComponent } from './components/highscore/highscore.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
+    QrScanComponent,
+    SafePipe,
     QrScanComponent,
     HighscoreComponent
   ],

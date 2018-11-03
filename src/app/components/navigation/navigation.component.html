@@ -1,4 +1,4 @@
-<nav class="navcontainer" *ngIf="userLoggedIn && router.url !== '/profile'">
+<nav class="navcontainer" *ngIf="userLoggedIn && router.url !== '/profile' && showNavbar">
   <a class="navbar-brand" href="#">karma.</a>
 
     <ul class="navbaricons">
@@ -8,8 +8,11 @@
         <li class="navicon" [ngClass]="{'active': router.url === '/highscore'}" [routerLink]="['/highscore']">
             <i class="fa fa-bar-chart"></i>
         </li>
-        <li class="navicon" [ngClass]="{'active': router.url === '/highscore'}" [routerLink]="['/trophies']">
+        <li class="navicon" [ngClass]="{'active': router.url === '/profile'}" [routerLink]="['/trophies']">
             <i class="fa fa-trophy"></i>
+        </li>
+        <li class="navicon" *ngIf="userLoggedIn"  (click)="signOut()">
+            <i class="fa fa-power-off"></i>
         </li>
     </ul>
 </nav>

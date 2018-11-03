@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   userLoggedIn = false;
   user: User;
+  showNavbar: boolean = true;
 
   constructor(
     private auth: AngularFireAuth,
@@ -22,10 +23,20 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     this.auth.user.subscribe(user => {
       if (user == null) {
+        this.user = null;
+        this.userLoggedIn = false;
         return;
       }
       this.user = user;
       this.userLoggedIn = true;
     });
+  }
+
+  signOut() {
+    this.userService.logout();
+  }
+
+  toggleNavbar() {
+    this.showNavbar = !this.showNavbar;
   }
 }
