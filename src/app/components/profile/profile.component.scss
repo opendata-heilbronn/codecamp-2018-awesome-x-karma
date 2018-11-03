@@ -10,7 +10,7 @@
 .profile-container {
   text-align: center;
   height: 61.8vh;
-  padding-top: 3rem;
+  padding-top: $padding-top;
   //background-color: map-get($theme-colors, "primary");
 
   .profile-picture {

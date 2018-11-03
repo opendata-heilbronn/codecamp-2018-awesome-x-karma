@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+
+.receipt-bar {
+  width: 100%;
+
+  .receipt-bar-desc {
+    color: map_get($theme-colors, "fontcolor");
+  }
+
+  .receipt-bar-progress {
+    display: flex;
+    flex-flow: row;
+
+    .receipt-bar-progress-icon {
+      flex-basis: 30px;
+      padding-top: 8px;
+    }
+
+    .receipt-bar-progress-bar {
+      flex-grow: 1;
+      flex-basis: 50px;
+    }
+  }
+}
+
+
+.icon {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url(/assets/icon-tree.png) no-repeat top left;
+  background-size: cover;
+  margin-bottom: -8px;
+  margin-right: 5px;
+}

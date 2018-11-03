@@ -2,7 +2,7 @@
   <a class="navbar-brand" href="#">karma.</a>
 
     <ul class="navbaricons">
-        <li class="navicon" [ngClass]="{'active': router.url === '/profile'}" [routerLink]="['/profile']">
+        <li class="navicon" [ngClass]="{'active': router.url === '/profile' || router.url === '/receipt'}" [routerLink]="['/profile']">
             <i class="fa fa-user"></i>
         </li>
         <li class="navicon" [ngClass]="{'active': router.url === '/highscore'}" [routerLink]="['/highscore']">
