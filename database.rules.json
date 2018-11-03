@@ -1,6 +1,15 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$uid": {
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "products": {
+      ".read": true,
+      ".write": false
+    }
   }
 }

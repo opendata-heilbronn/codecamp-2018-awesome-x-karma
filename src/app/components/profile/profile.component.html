@@ -1,7 +1,7 @@
 <div class="profile container-mh-100">
     <div class="profile-container">
         <div class="profile-picture" style="background-image: url('/assets/avatar-mock.png')"></div>
-        <h3 class="profile-name">Max Mustermann</h3>
+        <h3 class="profile-name"><span  *ngIf="user">{{ user.email }}</span></h3>
         <span class="profile-karma-total"> 1.337 Karmapunkte</span>
         <div class="awards">Y Y Y</div>
         <div class="position-absolute profile-icon">

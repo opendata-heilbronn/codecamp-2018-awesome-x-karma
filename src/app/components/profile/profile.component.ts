@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'firebase';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() {}
+  user: User = null;
+
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.userService.user.subscribe(user => this.user = user);
   }
 
 }
