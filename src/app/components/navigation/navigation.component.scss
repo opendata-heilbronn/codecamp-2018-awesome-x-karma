@@ -18,6 +18,7 @@ $borderthickness: 4px;
     margin: 0;
     position: relative;
     bottom: -$borderthickness;
+    padding-inline-start: 0;
 
     .navicon {
       display: inline-block;

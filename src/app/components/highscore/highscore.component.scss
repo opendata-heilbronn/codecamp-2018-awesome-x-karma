@@ -28,7 +28,7 @@ h1 {
       background-size: cover;
     }
     .desc {
-      padding: 30px;
+      padding: 20px;
       background-color: #fff;
       height: 100px;
       width: 90%;
@@ -36,12 +36,11 @@ h1 {
       border-radius: 5px;
 
       .score {
-        font-size: 30px;
         //color: map_get($theme-colors, "secondary");
       }
       .name {
-        font-size: 30px;
         padding-left: 20px;
+        display:block;
         //color: map_get($theme-colors, "secondary");
       }
     }
