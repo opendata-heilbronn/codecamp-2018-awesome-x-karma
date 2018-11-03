@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReceiptInfoComponent implements OnInit {
   @Input()
+  progress: number = 0;
   currentProgress: number = 0;
 
   @Input()
@@ -14,5 +15,13 @@ export class ReceiptInfoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let intervalHandle = setInterval(() => {
+      if (this.progress > this.currentProgress) {
+        this.currentProgress++;
+      } else {
+        clearInterval(intervalHandle);
+      }
+    }, 20);
+  }
 }
