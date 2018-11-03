@@ -19,6 +19,7 @@ import { HighscoreComponent } from './components/highscore/highscore.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { ProgressBarModule } from 'angular-progress-bar';
+import { ReceiptInfoComponent } from './components/receipt-info/receipt-info.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProgressBarModule } from 'angular-progress-bar';
     SafePipe,
     QrScanComponent,
     HighscoreComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    ReceiptInfoComponent
   ],
   imports: [
     BrowserModule,
