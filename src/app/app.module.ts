@@ -9,6 +9,10 @@ import { IndexComponent } from './components/index/index.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HighlightJsModule
+    HighlightJsModule,
+
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
