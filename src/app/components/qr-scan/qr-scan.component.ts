@@ -1,22 +1,41 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import jsQR from 'jsqr';
 import { BehaviorSubject} from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { User } from 'firebase';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-qr-scan',
   templateUrl: './qr-scan.component.html',
   styleUrls: ['./qr-scan.component.scss']
 })
-export class QrScanComponent implements OnInit {
 
+export class QrScanComponent implements OnInit {
+  user: User = null;
   output: BehaviorSubject<String> = new BehaviorSubject<String>(null);
+  users = null;
+  receipts = null;
 
   openModal() {
     this.popup.nativeElement.className = this.popup.nativeElement.className.concat(" open");
     document.querySelector('body').className = document.querySelector('body').className.concat(" popup-active")
-    this.video.nativeElement.stop()
+    this.video.nativeElement.pause()
   }
 
+  validateReceipt(data: String) {
+    if (typeof data === 'string' && data.length > 0) {
+      let receiptNumber = data.split(':')[0]
+      let articleNumbers = data.split(':')[1].split(' ').filter((string) => string.length > 0)
+      let obj = {};
+      articleNumbers.forEach(function(value) {
+        obj[receiptnumber] = {"date": "04.11.2018"}
+        obj
+      })
+      obj[receiptNumber]
+      this.receipts.push({})
+    }
+  }
 
   drawLine(begin, end, color) {
     let canvas = this.canvas.nativeElement.getContext("2d");
@@ -52,7 +71,6 @@ export class QrScanComponent implements OnInit {
         // outputData.parentElement.hidden = false;
 
         if (this.output.getValue() != code.data) {
-          console.log(code.data)
           this.output.next(code.data);
           this.openModal();
         }
@@ -64,7 +82,16 @@ export class QrScanComponent implements OnInit {
     requestAnimationFrame( () => this.tick());
   }
 
-  constructor() { }
+  constructor(private userService: UserService, db: AngularFireDatabase) {
+    this.userService.user.subscribe(user => {
+      this.user = user;
+    });
+    this.users = db.object('/users/' + this.user.uid).valueChanges().subscribe((data) => {
+      console.log(data)
+    });
+    this.receipts = db.list('/users/' + this.user.uid + '/receipts')
+    // debugger
+  }
 
   @ViewChild('myCanvas') canvas:ElementRef;
   @ViewChild('preview') video:ElementRef;
@@ -76,8 +103,6 @@ export class QrScanComponent implements OnInit {
   }
 
   ngOnInit() {
-    // var video = this.video.nativeElement
-    // let tick = this.tick
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then((stream) => {
       this.video.nativeElement.srcObject = stream;
       this.video.nativeElement.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -85,8 +110,7 @@ export class QrScanComponent implements OnInit {
       requestAnimationFrame(() => this.tick());
     });
 
-    this.output.subscribe((data) => console.log(data))
-
+    this.output.subscribe(this.validateReceipt);
   }
 
 }
