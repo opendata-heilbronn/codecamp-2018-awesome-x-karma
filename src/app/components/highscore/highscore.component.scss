@@ -12,10 +12,15 @@ h2 {
   padding-left: 5%;
   padding-right: 5%;
 
+  .scroll-box {
+    height: 80%;
+  }
+
   .place-container {
     width: 100%;
     position: relative;
-    margin-bottom: 45px;
+    margin-top: 10px;
+    margin-bottom: 35px;
 
     .image {
       background-color: red;
