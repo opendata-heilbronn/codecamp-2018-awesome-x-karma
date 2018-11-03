@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       if (user != null) {
         this.user = user;
         console.log(this.user);
-        this.router.navigate(['index']);
+        this.router.navigate(['/']);
       }
     });
   }

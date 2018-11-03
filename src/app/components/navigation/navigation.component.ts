@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,7 @@ export class NavigationComponent implements OnInit {
   userLoggedIn = false;
   user: User;
 
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth, private userService: UserService) { }
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
