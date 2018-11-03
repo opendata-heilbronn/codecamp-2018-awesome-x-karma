@@ -9,6 +9,9 @@
 
 .profile-container {
     text-align: center;
+    height: 61.8vh;
+    padding-top: 80px;
+    //background-color: map-get($theme-colors, "primary");
 }
 
 .profile-picture {
@@ -27,7 +30,7 @@
 
 .profile-history {
     background-color: map-get($theme-colors, "secondary");
-    height: 50vh;
+    height: 38.2vh; //golden ratio
     padding: 50px 0 0;
 }
 
@@ -59,8 +62,14 @@
 
 .btn-action {
     background-color: map-get($theme-colors, "action");
+    //position: absolute;
+  position:relative;
+  display:block;
+    top: -70px;
+
+
     color: white;
-    margin-bottom: -83px;
+    //margin-bottom: -83px;
     border-radius: 23px;
     z-index: 1;
     width: 80%;
