@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import jsQR from 'jsqr';
-import { BehaviorSubject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-qr-scan',
@@ -8,18 +8,10 @@ import { BehaviorSubject} from 'rxjs';
   styleUrls: ['./qr-scan.component.scss']
 })
 export class QrScanComponent implements OnInit {
-
   output: BehaviorSubject<String> = new BehaviorSubject<String>(null);
 
-  openModal() {
-    this.popup.nativeElement.className = this.popup.nativeElement.className.concat(" open");
-    document.querySelector('body').className = document.querySelector('body').className.concat(" popup-active")
-    this.video.nativeElement.stop()
-  }
-
-
   drawLine(begin, end, color) {
-    let canvas = this.canvas.nativeElement.getContext("2d");
+    let canvas = this.canvas.nativeElement.getContext('2d');
     canvas.beginPath();
     canvas.moveTo(begin.x, begin.y);
     canvas.lineTo(end.x, end.y);
@@ -29,9 +21,10 @@ export class QrScanComponent implements OnInit {
   }
 
   tick() {
+    // debugger
     let video = this.video.nativeElement;
     let canvasElement = this.canvas.nativeElement;
-    let canvas = this.canvas.nativeElement.getContext("2d");
+    let canvas = this.canvas.nativeElement.getContext('2d');
     // loadingMessage.innerText = "⌛ Loading video..."
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
       // loadingMessage.hidden = true;
@@ -41,52 +34,72 @@ export class QrScanComponent implements OnInit {
       canvasElement.height = video.videoHeight;
       canvasElement.width = video.videoWidth;
       canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-      var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+      var imageData = canvas.getImageData(
+        0,
+        0,
+        canvasElement.width,
+        canvasElement.height
+      );
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        this.drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-        this.drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-        this.drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-        this.drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+        this.drawLine(
+          code.location.topLeftCorner,
+          code.location.topRightCorner,
+          '#FF3B58'
+        );
+        this.drawLine(
+          code.location.topRightCorner,
+          code.location.bottomRightCorner,
+          '#FF3B58'
+        );
+        this.drawLine(
+          code.location.bottomRightCorner,
+          code.location.bottomLeftCorner,
+          '#FF3B58'
+        );
+        this.drawLine(
+          code.location.bottomLeftCorner,
+          code.location.topLeftCorner,
+          '#FF3B58'
+        );
         // outputMessage.hidden = true;
         // outputData.parentElement.hidden = false;
 
         if (this.output.getValue() != code.data) {
-          console.log(code.data)
           this.output.next(code.data);
-          this.openModal();
         }
       } else {
         // outputMessage.hidden = false;
         // outputData.parentElement.hidden = true;
       }
     }
-    requestAnimationFrame( () => this.tick());
+    requestAnimationFrame(() => this.tick());
   }
 
-  constructor() { }
+  constructor() {}
 
-  @ViewChild('myCanvas') canvas:ElementRef;
-  @ViewChild('preview') video:ElementRef;
-  @ViewChild('popup') popup:ElementRef;
+  @ViewChild('myCanvas')
+  canvas: ElementRef;
+  @ViewChild('preview')
+  video: ElementRef;
 
-  ngAfterViewInit(){
-    console.log(this.canvas.nativeElement.width)
-    var canvas = this.canvas.nativeElement.getContext("2d")
+  ngAfterViewInit() {
+    console.log(this.canvas.nativeElement.width);
+    var canvas = this.canvas.nativeElement.getContext('2d');
   }
 
   ngOnInit() {
     // var video = this.video.nativeElement
     // let tick = this.tick
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then((stream) => {
-      this.video.nativeElement.srcObject = stream;
-      this.video.nativeElement.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-      this.video.nativeElement.play();
-      requestAnimationFrame(() => this.tick());
-    });
+    navigator.mediaDevices
+      .getUserMedia({ video: { facingMode: 'environment' } })
+      .then(stream => {
+        this.video.nativeElement.srcObject = stream;
+        this.video.nativeElement.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
+        this.video.nativeElement.play();
+        requestAnimationFrame(() => this.tick());
+      });
 
-    this.output.subscribe((data) => console.log(data))
-
+    this.output.subscribe(data => console.log(data));
   }
-
 }
