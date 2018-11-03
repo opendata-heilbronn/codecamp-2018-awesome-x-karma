@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<
-    boolean
-  >(false);
+  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
   constructor(private auth: AngularFireAuth, private router: Router) {

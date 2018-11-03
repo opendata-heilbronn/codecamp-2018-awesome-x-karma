@@ -12,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { environment } from 'src/environments/environment';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { HighscoreComponent } from './components/highscore/highscore.component';
@@ -20,6 +19,8 @@ import { SafePipe } from './pipes/safe.pipe';
 import { ReceiptComponent } from './components/receipt/receipt.component';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { ReceiptInfoComponent } from './components/receipt-info/receipt-info.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReceiptInfoComponent } from './components/receipt-info/receipt-info.com
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
