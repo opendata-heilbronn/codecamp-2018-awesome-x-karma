@@ -3,13 +3,12 @@
 
 /* @import "themes/darkly.scss"; */
 
-$enable-rounded: false;
+$enable-rounded: true;
 
 $theme-colors: (
     "dark": rgb(18, 0, 21),
     "primary": #2aabc7,
     "secondary": #168198,
-
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap";
@@ -22,4 +21,8 @@ $theme-colors: (
 .carousel-caption {
     left: 0;
     right: 0;
+}
+
+.container-mh-100 {
+    min-height: 100vh
 }
