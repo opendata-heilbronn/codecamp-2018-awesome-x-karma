@@ -1,7 +1,7 @@
 <div class="profile container-mh-100">
     <div class="profile-container">
         <div class="profile-picture" *ngIf="user  && user.photoURL" [style.background-image]="'url(' + user.photoURL + ')' | safe: 'style'"></div>
-        <div class="profile-picture" *ngIf="!user || !user.photoURL" style="background-image: url('/assets/avatar-mock.png')"></div>
+        <div class="profile-picture" *ngIf="!user || !user.photoURL" style="background-image: url('/assets/avatar-default.jpeg')"></div>
         <div class="score">
             <span class="profile-score h1" *ngIf="userData">{{ userData.karma }}</span>
             <span class="profile-karma-total">Karmapunkte</span>

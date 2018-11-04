@@ -42,7 +42,7 @@ export class UserService {
     userData.karma = userData.karma || 0;
     userData.receipts = userData.receipts || [];
     userData.name = user.displayName || user.email || user.uid;
-    userData.photoUrl = user.photoURL || '/assets/avatar-mock.png';
+    userData.photoUrl = user.photoURL || '/assets/avatar-default.jpeg';
     return this.db.object('/users/' + user.uid).set(userData);
   }
 
