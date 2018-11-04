@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+h2 {
+  color: map_get($theme-colors, "fontcolor");
+  padding-bottom: 10px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: map_get($theme-colors, "fontcolor");
+}
+
+.trophies-container {
+  width: 100vw;
+  height: 100vh;
+  padding-top: $padding-top;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  .scroll-box {
+    height: 90%;
+
+
+    .scroll {
+      width: 100%;
+
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .unachieved {
+        opacity: 0.5;
+      }
+
+      .trophy {
+        flex-basis: 120px;
+        display: inline-block;
+        flex-grow: 1;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+
+        .trophy-image {
+          height: 80px;
+          width: 100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .trophy-progress {
+
+        }
+
+        .trophy-bio {
+          background-image: url("/assets/trophies/bio.png");
+        }
+
+        .trophy-water {
+          background-image: url("/assets/trophies/water.png");
+        }
+
+        .trophy-fairtrade {
+          background-image: url("/assets/trophies/fairtrade.png");
+        }
+
+        .trophy-vegetarian {
+          background-image: url("/assets/trophies/vegetarian.png");
+        }
+
+        .trophy-vegan {
+          background-image: url("/assets/trophies/vegan.png");
+        }
+
+        .trophy-green {
+          background-image: url("/assets/trophies/green.png");
+        }
+
+        .trophy-bag {
+          background-image: url("/assets/trophies/bag.png");
+        }
+
+        .trophy-energy {
+          background-image: url("/assets/trophies/energy.png");
+        }
+
+        .trophy-desc {
+          //height: 20px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
