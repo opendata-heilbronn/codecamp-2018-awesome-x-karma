@@ -19,11 +19,11 @@ export class UserService {
     private router: Router) {
     this.auth.user.subscribe(user => {
       if (user == null) return;
+      this.isAuthenticated.next(true);
 
       this.db.object('/users/' + user.uid).valueChanges().subscribe((data) => {
         this.userData.next(data);
         this.user.next(user);
-        this.isAuthenticated.next(true);
       });
     });
   }

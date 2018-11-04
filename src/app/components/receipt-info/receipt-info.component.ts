@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-receipt-info',
@@ -16,9 +18,15 @@ export class ReceiptInfoComponent implements OnInit {
   // in ms
   private animationDuration = 1000;
 
-  constructor() {}
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(result => {
+      result['id']
+    });
+    
     let start = Date.now();
     let intervalHandle = setInterval(() => {
       let time = Date.now() - start;

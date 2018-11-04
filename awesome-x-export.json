@@ -1,0 +1,168 @@
+{
+  "products" : {
+    "1041700" : {
+      "Co2" : 11900,
+      "category" : "nf",
+      "distance" : 70000,
+      "haltung" : "fair trade",
+      "name" : "Fair trade Reiswaffeln",
+      "region" : "chaina",
+      "score" : 0
+    },
+    "1143937" : {
+      "category" : "o",
+      "co2" : 17,
+      "distance" : 10,
+      "haltung" : "bio",
+      "name" : "Freiland-Hähnchen-Brustfilet",
+      "region" : "Nordheim",
+      "score" : 0
+    },
+    "1161551" : {
+      "category" : "o",
+      "co2" : 520,
+      "distance" : 300,
+      "haltung" : "bio",
+      "name" : "Bio Eis",
+      "region" : "Deutschland",
+      "score" : 0
+    },
+    "1164895" : {
+      "category" : "o",
+      "co2" : 85,
+      "distace" : 50,
+      "haltung" : "bio",
+      "name" : "Bio Yougort",
+      "region" : "Baden Wütenberg",
+      "score" : 0
+    },
+    "1231230" : {
+      "category" : "o",
+      "co2" : 14620,
+      "distance" : 8600,
+      "name" : "Avacado",
+      "region" : "Brazzilien",
+      "score" : 0,
+      "wasser" : 320
+    },
+    "1425238" : {
+      "category" : "t",
+      "co2" : 23,
+      "distance" : 14,
+      "haltung" : "bio",
+      "name" : "Bio Eier",
+      "platz" : 5,
+      "region" : "Brackenheim",
+      "score" : 0
+    },
+    "1425239" : {
+      "category" : "t",
+      "distance" : 70,
+      "haltung" : "freiland",
+      "name" : "Freiland Eier",
+      "platz" : 3,
+      "region" : "Heidelberg",
+      "score" : 0
+    },
+    "1500010" : {
+      "category" : "t",
+      "co2" : 17,
+      "distance" : 10,
+      "haltung" : "bio",
+      "name" : "Bio Rinder Steack 500g",
+      "platz" : 8,
+      "region" : "Neckersulm",
+      "score" : 0,
+      "wasser" : 75000
+    },
+    "1500011" : {
+      "category" : "t",
+      "co2" : 119,
+      "distance" : 70,
+      "haltung" : "bio",
+      "name" : "Bio Schweine Steak 500g",
+      "platz" : 7,
+      "region" : "Stuttgart",
+      "score" : 0,
+      "wasser" : 6000
+    },
+    "1500012" : {
+      "category" : "t",
+      "co2" : 0,
+      "distance" : 99999,
+      "haltung" : "bio",
+      "name" : "Bio Fair Trade Einhornfleisch 300g",
+      "platz" : 0,
+      "region" : "Regenbogen",
+      "score" : 96
+    },
+    "1500014" : {
+      "category" : "t",
+      "co2" : "8,5",
+      "distance" : 5,
+      "haltung" : "bio",
+      "name" : "Schafs fleisch 1 kg bio",
+      "region" : "flein",
+      "score" : 0
+    },
+    "3200405" : {
+      "category" : "o",
+      "distance" : 100,
+      "haltung" : "bio",
+      "name" : "Bio Rohrohrzucker",
+      "region" : "germany",
+      "score" : 0
+    },
+    "4010642" : {
+      "category" : "o",
+      "distance" : 7000,
+      "haltung" : "bio",
+      "name" : "Bio Langkorn-Naturreis",
+      "region" : "tschiana ",
+      "score" : 0
+    }
+  },
+  "users" : {
+    "8knWDl4UV1TpZiLhlOniSbsZRoJ2" : {
+      "karma" : 0
+    },
+    "doB34ltZoxOnFKACuUics61Xc732" : {
+      "karma" : 12,
+      "receipts" : {
+        "1541294236320" : {
+          "articles" : {
+            "1041700" : {
+              "Co2" : 11900,
+              "category" : "nf",
+              "distance" : 70000,
+              "haltung" : "fair trade",
+              "name" : "Fair trade Reiswaffeln",
+              "region" : "chaina",
+              "score" : 0
+            },
+            "1143937" : {
+              "category" : "o",
+              "co2" : 17,
+              "distance" : 10,
+              "haltung" : "bio",
+              "name" : "Freiland-Hähnchen-Brustfilet",
+              "region" : "Nordheim",
+              "score" : 0
+            },
+            "1161551" : {
+              "category" : "o",
+              "co2" : 520,
+              "distance" : 300,
+              "haltung" : "bio",
+              "name" : "Bio Eis",
+              "region" : "Deutschland",
+              "score" : 0
+            }
+          },
+          "date" : "2018-11-04T01:17:16.020Z",
+          "score" : 12
+        }
+      }
+    }
+  }
+}

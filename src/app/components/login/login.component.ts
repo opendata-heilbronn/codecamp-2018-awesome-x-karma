@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     private db: AngularFireDatabase,
     private auth: AngularFireAuth,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
@@ -108,7 +108,10 @@ export class LoginComponent implements OnInit {
     this.animatePlanete(this.planet2, 135);
     this.animatePlanete(this.planet3, 45);
 
-    this.auth.auth.signInWithEmailAndPassword(this.email, this.password);
+    this.auth.auth.signInWithEmailAndPassword(this.email, this.password)
+      .then(() => {
+        this.router.navigate(['profile']);
+      });;
   }
 
   loginWithGoogle() {

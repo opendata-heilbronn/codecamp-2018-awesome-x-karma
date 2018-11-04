@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-receipt',
@@ -6,7 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  constructor() {}
+  
+  userData: any = null;
+  receipt: any = null;
+  articles: any[] = [];
 
-  ngOnInit() {}
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute) {}
+
+  ngOnInit() {
+
+    this.route.params.subscribe(result => {
+      this.userService.userData.subscribe(data => {
+        this.receipt = data.receipts[result['id']];
+        this.articles = Object.keys(this.receipt.articles).map(key => {
+          var article = this.receipt.articles[key];
+          article.$key = key;
+          return article;
+        });
+      });
+    });
+  }
 }

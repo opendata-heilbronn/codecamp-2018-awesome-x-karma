@@ -1,9 +1,7 @@
 <div class="profile container-mh-100">
     <div class="profile-container">
-        <div class="profile-picture" *ngIf="user  && user.photoURL"
-             [style.background-image]="'url(' + user.photoURL + ')' | safe: 'style'"></div>
-        <div class="profile-picture" *ngIf="!user || !user.photoURL"
-             style="background-image: url('/assets/avatar-mock.png')"></div>
+        <div class="profile-picture" *ngIf="user  && user.photoURL" [style.background-image]="'url(' + user.photoURL + ')' | safe: 'style'"></div>
+        <div class="profile-picture" *ngIf="!user || !user.photoURL" style="background-image: url('/assets/avatar-mock.png')"></div>
         <div class="score">
             <span class="profile-score h1" *ngIf="userData">{{ userData.karma }}</span>
             <span class="profile-karma-total">Karmapunkte</span>
@@ -15,46 +13,14 @@
         <a class="btn btn-action" [routerLink]="['/scan']">Kassenzettel scannen</a>
 
         <div class="scroll-box">
-            <div class="scroll">
-                <div class="profile-history-item" [routerLink]="['/receipt']">
+            <div class="scroll" *ngIf="userData">
+                <div class="profile-history-item" *ngFor="let receipt of receipts" [routerLink]="['/receipt/' + receipt.$key]">
                     <span class="history-item-date">04.11.2018</span>
                     <span class="history-item-icons">
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-            </span>
-                </div>
-                <div class="profile-history-item" [routerLink]="['/receipt']">
-                    <span class="history-item-date">04.11.2018</span>
-                    <span class="history-item-icons">
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-            </span>
-                </div>
-                <div class="profile-history-item" [routerLink]="['/receipt']">
-                    <span class="history-item-date">04.11.2018</span>
-                    <span class="history-item-icons">
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-            </span>
-                </div>
-                <div class="profile-history-item" [routerLink]="['/receipt']">
-                    <span class="history-item-date">04.11.2018</span>
-                    <span class="history-item-icons">
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-            </span>
-                </div>
-                <div class="profile-history-item" [routerLink]="['/receipt']">
-                    <span class="history-item-date">04.11.2018</span>
-                    <span class="history-item-icons">
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-                <i class="icon-tree"></i>
-            </span>
+                        <i class="icon-tree"></i>
+                        <i class="icon-tree"></i>
+                        <i class="icon-tree"></i>
+                    </span>
                 </div>
             </div>
         </div>
