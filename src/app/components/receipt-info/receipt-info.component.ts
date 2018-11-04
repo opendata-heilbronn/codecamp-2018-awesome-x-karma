@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-receipt-info',
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ReceiptInfoComponent implements OnInit {
   @Input()
-  progress: number = 0;
+  progress: number = this.utilService.getRandomInt(10, 90);
   currentProgress: number = 0;
 
   @Input()
@@ -20,6 +21,7 @@ export class ReceiptInfoComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private utilService: UtilService,
     private route: ActivatedRoute
   ) {}
 
