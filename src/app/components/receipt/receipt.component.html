@@ -25,6 +25,7 @@
                 <div class="receipt-item" *ngFor="let article of articles">
                     <span class="receipt-item-name">{{ article.name }}</span>
                     <span class="receipt-item-icons">
+                        {{ article.score }}
                         <i class="icon-tree" *ngFor="let karmaIcon of article.karmaIcons"></i>
                     </span>
                 </div>

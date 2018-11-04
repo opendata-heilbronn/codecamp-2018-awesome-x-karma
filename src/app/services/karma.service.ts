@@ -37,6 +37,8 @@ export class KarmaService {
     } else if (product.haltung === 'fairtrade') {
       score = 40;
     }
+  }
+
   co2Scale(product: any): number {
       let score = 0;
       if (product.co2 === null) {
