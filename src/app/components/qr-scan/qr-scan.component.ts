@@ -24,26 +24,33 @@ export class QrScanComponent implements OnInit {
     private karmaService: KarmaService,
     private jsonService: JsonService,
     private db: AngularFireDatabase,
-    private scanService: ScanService) { }
+    private scanService: ScanService
+  ) {}
 
-  @ViewChild('myCanvas') canvas: ElementRef;
-  @ViewChild('preview') video: ElementRef;
-  @ViewChild('popup') popup: ElementRef;
+  @ViewChild('myCanvas')
+  canvas: ElementRef;
+  @ViewChild('preview')
+  video: ElementRef;
+  @ViewChild('popup')
+  popup: ElementRef;
 
   ngAfterViewInit() {
     console.log(this.canvas.nativeElement.width);
-    var canvas = this.canvas.nativeElement.getContext("2d");
+    var canvas = this.canvas.nativeElement.getContext('2d');
   }
 
   ngOnInit() {
-
     this.userService.user.subscribe(user => {
-      if (user == null) { return; }
+      if (user == null) {
+        return;
+      }
       this.user = user;
     });
 
     this.userService.userData.subscribe(data => {
-      if (data == null) { return; }
+      if (data == null) {
+        return;
+      }
       this.userData = data;
     });
 
@@ -60,42 +67,54 @@ export class QrScanComponent implements OnInit {
   }
 
   openModal() {
-    this.popup.nativeElement.className = this.popup.nativeElement.className.concat(" open");
-    document.querySelector('body').className = document.querySelector('body').className.concat(" popup-active")
-    this.video.nativeElement.pause()
+    this.popup.nativeElement.className = this.popup.nativeElement.className.concat(
+      ' open'
+    );
+    document.querySelector('body').className = document
+      .querySelector('body')
+      .className.concat(' popup-active');
+    this.video.nativeElement.pause();
   }
 
   validateReceipt(data: String) {
     if (data.length > 0) {
-      let receiptNumber = data.split(':')[0]
-      let articleNumbers = data.split(':')[1].trim().split(' ');
+      let receiptNumber = data.split(':')[0];
+      let articleNumbers = data
+        .split(':')[1]
+        .trim()
+        .split(' ');
 
       console.log('artnums', articleNumbers);
 
       let receipt = {
         score: 0,
-        date: (new Date()).toISOString(),
-        articles: { }
-      }
+        date: new Date().toISOString(),
+        articles: {}
+      };
 
-      this.db.object<any>('/products').valueChanges().subscribe(result => {
-        console.log(result);
-        articleNumbers.forEach(nr => {
-          this.jsonService.UpdateNode(receipt, 'articles.' + nr, result[nr]);
-          receipt.score += this.karmaService.GetKarma(result[nr]);
+      this.db
+        .object<any>('/products')
+        .valueChanges()
+        .subscribe(result => {
+          console.log(result);
+          articleNumbers.forEach(nr => {
+            this.jsonService.UpdateNode(receipt, 'articles.' + nr, result[nr]);
+            receipt.score += this.karmaService.GetKarma(result[nr]);
+          });
+
+          console.log('complete receipt', receipt);
+
+          if (!this.userData.receipts) {
+            this.userData.receipts = {};
+          }
+
+          var key = Date.now();
+          this.userData.receipts[key] = receipt;
+          this.userData.karma += receipt.score;
+          this.db.object('/users/' + this.user.uid).set(this.userData);
+
+          this.router.navigate(['receipt/' + key]);
         });
-
-        console.log('complete receipt', receipt);
-  
-        if (!this.userData.receipts) { this.userData.receipts = {}; }
-
-        var key = Date.now();
-        this.userData.receipts[key] = receipt;
-        this.userData.karma += receipt.score;
-        this.db.object('/users/' + this.user.uid).set(this.userData);
-
-        this.router.navigate(['receipt/' + key]);
-      });
     }
   }
 }

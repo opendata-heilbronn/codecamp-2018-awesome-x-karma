@@ -8,17 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  
   userData: any = null;
   receipt: any = null;
   articles: any[] = [];
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-
     this.route.params.subscribe(result => {
       this.userService.userData.subscribe(data => {
         this.receipt = data.receipts[result['id']];

@@ -15,20 +15,21 @@ export class ProfileComponent implements OnInit {
   imageUrl: SafeUrl = null;
   receipts: any[] = [];
 
-  constructor(
-    private userService: UserService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.userService.user.subscribe(user => this.user = user);
+    this.userService.user.subscribe(user => (this.user = user));
     this.userService.userData.subscribe(data => {
-      if (!data) { return; }
-      console.log(data); 
+      if (!data) {
+        return;
+      }
+      console.log(data);
       this.userData = data;
       this.receipts = Object.keys(data.receipts).map(key => {
         var obj = data.receipts[key];
         obj.key = key;
         return obj;
-      }); 
+      });
     });
   }
 }

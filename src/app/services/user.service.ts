@@ -9,22 +9,28 @@ import { AngularFireDatabase } from 'angularfire2/database';
   providedIn: 'root'
 })
 export class UserService {
-  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<
+    boolean
+  >(false);
   public user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
   userData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(
-    private auth: AngularFireAuth, 
+    private auth: AngularFireAuth,
     private db: AngularFireDatabase,
-    private router: Router) {
+    private router: Router
+  ) {
     this.auth.user.subscribe(user => {
       if (user == null) return;
       this.isAuthenticated.next(true);
 
-      this.db.object('/users/' + user.uid).valueChanges().subscribe((data) => {
-        this.userData.next(data);
-        this.user.next(user);
-      });
+      this.db
+        .object('/users/' + user.uid)
+        .valueChanges()
+        .subscribe(data => {
+          this.userData.next(data);
+          this.user.next(user);
+        });
     });
   }
 

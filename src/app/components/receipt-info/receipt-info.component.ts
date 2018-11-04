@@ -20,13 +20,14 @@ export class ReceiptInfoComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(result => {
-      result['id']
+      result['id'];
     });
-    
+
     let start = Date.now();
     let intervalHandle = setInterval(() => {
       let time = Date.now() - start;

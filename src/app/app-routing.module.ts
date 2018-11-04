@@ -16,7 +16,11 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'scan', component: QrScanComponent, canActivate: [AuthGuard] },
   { path: 'trophies', component: TrophiesComponent, canActivate: [AuthGuard] },
-  { path: 'highscore', component: HighscoreComponent, canActivate: [AuthGuard] },
+  {
+    path: 'highscore',
+    component: HighscoreComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'receipt/:id', component: ReceiptComponent, canActivate: [AuthGuard] }
 ];
 
