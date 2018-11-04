@@ -15,7 +15,7 @@
         <div class="scroll-box">
             <div class="scroll" *ngIf="userData">
                 <div class="profile-history-item" *ngFor="let receipt of receipts" [routerLink]="['/receipt/' + receipt.key]">
-                    <span class="history-item-date">{{ receipt.date | date: 'd.M.yy' }}</span>
+                    <span class="history-item-date">{{ receipt.date | date: 'd.M.yy, hh:mm' }}</span>
                     <span class="history-item-icons">
                         <i class="icon-tree"></i> {{ receipt.score }}
                     </span>

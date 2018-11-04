@@ -25,11 +25,15 @@ export class ProfileComponent implements OnInit {
       }
       console.log(data);
       this.userData = data;
-      this.receipts = Object.keys(data.receipts).map(key => {
-        var obj = data.receipts[key];
-        obj.key = key;
-        return obj;
-      });
+      this.receipts = Object.keys(data.receipts)
+        .map(key => {
+          var obj = data.receipts[key];
+          obj.key = key;
+          return obj;
+        })
+        .sort((a, b) => {
+          return new Dateg(b.date).getTime() - new Date(a.date).getTime();
+        });
     });
   }
 }
