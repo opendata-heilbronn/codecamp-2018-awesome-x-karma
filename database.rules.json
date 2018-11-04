@@ -3,6 +3,7 @@
     ".read": false,
     ".write": false,
     "users": {
+      ".read": true,
       "$uid": {
         ".write": "$uid === auth.uid",
         ".read": "$uid === auth.uid"
