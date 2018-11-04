@@ -13,7 +13,6 @@ export class HighscoreComponent implements OnInit {
 
   ngOnInit() {
     this.highscoreService.users.subscribe(users => {
-      console.log(users);
       this.users = users;
     });
   }

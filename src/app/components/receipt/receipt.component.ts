@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-recenipt',
@@ -14,6 +15,7 @@ export class ReceiptComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private utilService: UtilService,
     private route: ActivatedRoute
   ) {}
 
@@ -23,6 +25,7 @@ export class ReceiptComponent implements OnInit {
         this.receipt = data.receipts[result['id']];
         this.articles = Object.keys(this.receipt.articles).map(key => {
           var article = this.receipt.articles[key];
+          article.karmaIcons = new Array(this.utilService.getRandomInt(1, 3));
           article.key = key;
           return article;
         });
