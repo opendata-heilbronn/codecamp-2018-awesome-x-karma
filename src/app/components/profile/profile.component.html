@@ -5,7 +5,7 @@
         <div class="profile-picture" *ngIf="!user || !user.photoURL"
              style="background-image: url('/assets/avatar-mock.png')"></div>
         <div class="score">
-            <span class="profile-score h1">1.337</span>
+            <span class="profile-score h1" *ngIf="userData">{{ userData.karma }}</span>
             <span class="profile-karma-total">Karmapunkte</span>
         </div>
         <!--<h3 class="profile-name"><span  *ngIf="user">{{ user.email }}</span></h3>-->

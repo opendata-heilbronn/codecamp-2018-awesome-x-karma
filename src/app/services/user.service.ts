@@ -3,24 +3,28 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from 'firebase';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<
-    boolean
-  >(false);
+  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  userData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private auth: AngularFireAuth, private router: Router) {
+  constructor(
+    private auth: AngularFireAuth, 
+    private db: AngularFireDatabase,
+    private router: Router) {
     this.auth.user.subscribe(user => {
       if (user == null) return;
 
-      this.user.next(user);
-      this.isAuthenticated.next(true);
-
-      console.log(user);
+      this.db.object('/users/' + user.uid).valueChanges().subscribe((data) => {
+        this.userData.next(data);
+        this.user.next(user);
+        this.isAuthenticated.next(true);
+      });
     });
   }
 

@@ -11,13 +11,14 @@ import { SafeUrl } from '@angular/platform-browser';
 })
 export class ProfileComponent implements OnInit {
   user: User = null;
+  userData: any = null;
   imageUrl: SafeUrl = null;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService) {}
 
   ngOnInit() {
-    this.userService.user.subscribe(user => {
-      this.user = user;
-    });
+    this.userService.user.subscribe(user => this.user = user);
+    this.userService.userData.subscribe(data => this.userData = data);
   }
 }
