@@ -100,7 +100,7 @@ export class QrScanComponent implements OnInit {
           articleNumbers.forEach(nr => {
             this.jsonService.UpdateNode(receipt, 'articles.' + nr, result[nr]);
             receipt.score += this.karmaService.GetKarma(result[nr]);
-            console.log(receipt.score)
+            console.log(receipt.score);
           });
 
           console.log('complete receipt', receipt);
