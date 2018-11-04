@@ -21,6 +21,7 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { ReceiptInfoComponent } from './components/receipt-info/receipt-info.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TrophiesComponent } from './components/trophies/trophies.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { environment } from '../environments/environment';
     QrScanComponent,
     HighscoreComponent,
     ReceiptComponent,
-    ReceiptInfoComponent
+    ReceiptInfoComponent,
+    TrophiesComponent
   ],
   imports: [
     BrowserModule,
