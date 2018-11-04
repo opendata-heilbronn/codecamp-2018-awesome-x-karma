@@ -28,7 +28,8 @@ export class UserService {
         .object('/users/' + user.uid)
         .valueChanges()
         .subscribe(data => {
-          this.setDefaultValues(user, data).then(qqq => {
+          data = data || {};
+          this.setDefaultValues(user, data).then(res => {
             this.userData.next(data);
             this.user.next(user);
           });
@@ -37,10 +38,11 @@ export class UserService {
   }
 
   private setDefaultValues(user: User, userData: any) {
+    userData.key = user.uid;
     userData.karma = userData.karma || 0;
     userData.receipts = userData.receipts || [];
     userData.name = user.displayName || user.email || user.uid;
-    userData.photoUrl = user.photoUrl || '/assets/avatar-mock.png';
+    userData.photoUrl = user.photoURL || '/assets/avatar-mock.png';
     return this.db.object('/users/' + user.uid).set(userData);
   }
 
