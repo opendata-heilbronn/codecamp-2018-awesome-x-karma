@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         this.user = user;
         console.log(this.user);
         this.router.navigate(['/']);
+        // TODO: In /users die uid und /users/{uid}/karma = 0 setzen
       }
     });
 
