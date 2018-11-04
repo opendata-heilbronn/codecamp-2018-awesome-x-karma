@@ -4,10 +4,10 @@
         <div class="scroll-box">
             <div class="scroll">
                 <div class="place-container" *ngFor="let user of users">
-                    <div class="image" style="background-image: url('/assets/avatar-mock.png')"></div>
+                    <div class="image" [style.background-image]="'url(' + (user.photoUrl || '/assets/avatar-mock.png') + ')' | safe: 'style'"></div>
                     <div class="desc">
                         <span class="score h4">{{user.karma}} <i class="icon-tree"></i></span>
-                        <span class="name">{{user.key}}</span>
+                        <span class="name">{{user.name || user.key}}</span>
                     </div>
                 </div>
             </div>

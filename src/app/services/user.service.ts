@@ -28,10 +28,20 @@ export class UserService {
         .object('/users/' + user.uid)
         .valueChanges()
         .subscribe(data => {
-          this.userData.next(data);
-          this.user.next(user);
+          this.setDefaultValues(user, data).then(qqq => {
+            this.userData.next(data);
+            this.user.next(user);
+          });
         });
     });
+  }
+
+  private setDefaultValues(user: User, userData: any) {
+    userData.karma = userData.karma || 0;
+    userData.receipts = userData.receipts || [];
+    userData.name = user.displayName || user.email || user.uid;
+    userData.photoUrl = user.photoUrl || '/assets/avatar-mock.png';
+    return this.db.object('/users/' + user.uid).set(userData);
   }
 
   logout() {
