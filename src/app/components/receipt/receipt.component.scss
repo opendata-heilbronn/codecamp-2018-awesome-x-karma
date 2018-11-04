@@ -49,9 +49,21 @@ h2, h3, h4, h5, h6 {
 
     color: black;
     background-color: white;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+
+
+    .receipt-item-name {
+      flex-basis: 30px;
+      flex-grow: 1;
+      text-overflow: ellipsis;
+      overflow:hidden;
+      white-space: nowrap;
+    }
 
     .receipt-item-icons {
-      float: right;
+      flex-basis: 90px;
     }
   }
 }
