@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
           return obj;
         })
         .sort((a, b) => {
-          return new Dateg(b.date).getTime() - new Date(a.date).getTime();
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
     });
   }
