@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ScanService } from 'src/app/services/scan.service';
 import { KarmaService } from 'src/app/services/karma.service';
 import { JsonService } from 'src/app/services/json.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-scan',
@@ -18,6 +19,7 @@ export class QrScanComponent implements OnInit {
   userData = null;
 
   constructor(
+    private router: Router,
     private userService: UserService,
     private karmaService: KarmaService,
     private jsonService: JsonService,
@@ -86,9 +88,13 @@ export class QrScanComponent implements OnInit {
         console.log('complete receipt', receipt);
   
         if (!this.userData.receipts) { this.userData.receipts = {}; }
-        this.userData.receipts[Date.now()] = receipt;
+
+        var key = Date.now();
+        this.userData.receipts[key] = receipt;
         this.userData.karma += receipt.score;
         this.db.object('/users/' + this.user.uid).set(this.userData);
+
+        this.router.navigate(['receipt/' + key]);
       });
     }
   }

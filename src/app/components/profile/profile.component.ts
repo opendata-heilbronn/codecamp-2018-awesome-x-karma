@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
       this.userData = data;
       this.receipts = Object.keys(data.receipts).map(key => {
         var obj = data.receipts[key];
-        obj.$key = key;
+        obj.key = key;
         return obj;
       }); 
     });
